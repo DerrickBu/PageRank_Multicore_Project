@@ -35,3 +35,11 @@ int Page::get_out_link_counts() {
 void Page::add_out_link_counts(int count) {
   this->out_link_counts += count;
 }
+
+int Page::get_in_link_counts() {
+  return in_link_counts;
+}
+
+void Page::set_in_link_counts(int inlink_counts) {
+  this->in_link_counts = inlink_counts;
+}

@@ -8,6 +8,7 @@ private:
   int page_id;
   std::vector<int> in_links;
   int out_link_counts;
+  int in_link_counts;
 
 public:
   Page();
@@ -18,7 +19,8 @@ public:
   std::vector<int> get_in_links();
   int get_out_link_counts();
   void add_out_link_counts(int count);
-
+  int get_in_link_counts();
+  void set_in_link_counts(int inlink_counts);
 };
 
 #endif
