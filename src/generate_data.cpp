@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
   for (int i = 0; i < total_page_counts; ++i) 
   {
     int in_link_nums = rand() % max_in_link_nums;
-    for (i = 0; i < in_link_nums; i++)
+    for (int j = 0; j < in_link_nums; j++)
     {
       int in_link = rand() % total_page_counts;
       all_pages[i] -> add_in_link(in_link);
