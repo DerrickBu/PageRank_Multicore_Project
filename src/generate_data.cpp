@@ -1,7 +1,11 @@
 #include "page.h"
-#include "chunk.h"
-#include "metadata.h"
+// #include "chunk.h"
+// #include "metadata.h"
 #include <iostream>
+#include <vector>
+#include <random>
+#include <algorithm>
+#include <fstream>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -11,10 +15,10 @@ int main(int argc, char *argv[])
   int max_in_link_nums = atoi(argv[2]);
   int pages_per_chunk = atoi(argv[3]);
 
-  vector<Page> all_pages(total_page_counts);
+  vector<Page*> all_pages;
   for (int i = 0; i < total_page_counts; ++i)
   {
-    all_pages[i] = new Page(i);
+    all_pages.push_back(new Page(i));
   }
 
   for (int i = 0; i < total_page_counts; ++i) 
@@ -23,8 +27,8 @@ int main(int argc, char *argv[])
     for (i = 0; i < in_link_nums; i++)
     {
       int in_link = rand() % total_page_counts;
-      all_pages[i].add_in_link(in_link);
-      all_pages[in_link].add_out_link_counts(1);
+      all_pages[i] -> add_in_link(in_link);
+      all_pages[in_link] -> add_out_link_counts(1);
     }
   }
   random_device rd;
@@ -41,9 +45,9 @@ int main(int argc, char *argv[])
    }
    for (int i = 0; i < total_page_counts; ++i)
    {
-     Page p = all_pages[i];
-     outdata<<p.get_page_id<<" "<<p.get_out_link_counts<<endl;
-     for (auto& in_link : p.get_in_links)
+     Page *p = all_pages[i];
+     outdata<<p -> get_page_id()<<" "<<p -> get_out_link_counts()<<endl;
+     for (auto& in_link : p -> get_in_links())
      {
        outdata<<in_link<<" ";
      }

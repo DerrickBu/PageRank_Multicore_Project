@@ -1,6 +1,6 @@
 #ifndef PAGE_H
 #define PAGE_H
-
+#include<vector>
 
 class Page {
 

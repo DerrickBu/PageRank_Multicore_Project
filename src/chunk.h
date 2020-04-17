@@ -1,7 +1,8 @@
 #ifndef CHUNK_H
 #define CHUNK_H
 
-#incldue "page.h"
+#include "page.h"
+#include<vector>
 
 class Chunk {
 
